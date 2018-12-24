@@ -8,8 +8,6 @@ import (
 	"github.com/sony/sonyflake"
 )
 
-type ID int64
-
 var sf = initSonyflake()
 
 func initSonyflake() *sonyflake.Sonyflake {
@@ -29,14 +27,14 @@ func machineID() (uint16, error) {
 	return uint16(machineID), nil
 }
 
-func New() (ID, error) {
+func New() (int64, error) {
 	id, err := sf.NextID()
 	if err != nil {
 		return 0, err
 	}
-	return ID(id), nil
+	return int64(id), nil
 }
 
-func Must(id ID, _ error) ID {
+func Must(id int64, _ error) int64 {
 	return id
 }
