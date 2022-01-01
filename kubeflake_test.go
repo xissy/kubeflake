@@ -23,6 +23,12 @@ func TestMust(t *testing.T) {
 	assert.NotZero(t, id)
 }
 
+func TestCompareOrder(t *testing.T) {
+	id1 := Must(New())
+	id2 := Must(New())
+	assert.Less(t, id1, id2)
+}
+
 func BenchmarkNew(b *testing.B) {
 	b.ReportAllocs()
 	for n := 0; n < b.N; n++ {
