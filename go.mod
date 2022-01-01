@@ -1,9 +1,14 @@
 module github.com/xissy/kubeflake
 
+go 1.17
+
 require (
-	github.com/deckarep/golang-set v1.7.1 // indirect
-	github.com/golangci/golangci-lint v1.16.0 // indirect
-	github.com/rakyll/gotest v0.0.0-20180125184505-86f0749cd8cc // indirect
-	github.com/sony/sonyflake v0.0.0-20181109022403-6d5bd6181009
-	github.com/stretchr/testify v1.2.2
+	github.com/sony/sonyflake v1.0.0
+	github.com/stretchr/testify v1.7.0
+)
+
+require (
+	github.com/davecgh/go-spew v1.1.0 // indirect
+	github.com/pmezard/go-difflib v1.0.0 // indirect
+	gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c // indirect
 )
