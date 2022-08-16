@@ -38,3 +38,23 @@ func New() (uint64, error) {
 func Must(id uint64, _ error) uint64 {
 	return id
 }
+
+//go:generate mockgen -package kubeflake -self_package "github.com/xissy/kubeflake" -destination=./kubeflake_mock.go "github.com/xissy/kubeflake" IDGenerator
+type IDGenerator interface {
+	New() (uint64, error)
+	Must() uint64
+}
+
+type idGenerator struct{}
+
+func NewIDGenerator() IDGenerator {
+	return &idGenerator{}
+}
+
+func (g *idGenerator) New() (uint64, error) {
+	return New()
+}
+
+func (g *idGenerator) Must() uint64 {
+	return Must(New())
+}

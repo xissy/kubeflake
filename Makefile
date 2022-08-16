@@ -28,6 +28,12 @@ lint:
 	scopelint --set-exit-status ./...
 	go mod verify
 
+.PHONY: generate
+## generate: generate files such as mocks
+generate:
+	@go install github.com/golang/mock/mockgen
+	go generate ./...
+
 .PHONY: help
 ## help: prints this help message
 help:
